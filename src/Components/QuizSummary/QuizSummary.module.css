@@ -1,0 +1,41 @@
+.container{
+    width: 15%;
+    height: 10vh;
+    background-color:#fff;
+    margin: 0.5% 3.5%;
+    border-radius: 10px;
+    padding: 0  15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: Poppins;
+}
+
+.heading{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.head{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.view{
+    text-align: center;
+    color: #FF5D01;
+}
+.date{
+    font-size: 0.8rem;
+    color: #60B84B;
+}
+
+
+@media screen and (min-width:676px) and (max-width:1024px){
+    .container{
+        width: 30%;
+        margin: 30px  30px;
+
+    }
+}

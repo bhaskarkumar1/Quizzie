@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* background-color:#82e213; */
+    font-weight: 600;
+    /* color: #fff; */
+    border-radius: 12px;
+    /* margin: 5px 0 ; */
+}
+
+.empty{
+    width: 20%;
+    height: 60%;
+    display: flex;
+    /* background-color:#5076FF; */
+    justify-content: space-evenly;
+    text-decoration: underline;
+}
+.equi{
+    width: 15%;
+    height: 60%;
+    text-align: center;
+}
+.icon{
+    font-size: 1.5rem;
+}
+.edit{
+    color: #854CFF;
+}
+.del{
+    color: #D60000;
+}
+.share{
+    color: #60B84B;
+}

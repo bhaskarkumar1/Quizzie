@@ -1,0 +1,47 @@
+.container{
+    width: 100%;
+    height: 100%;
+    background-color: gold;
+    display: flex;
+}
+.left{
+    width: 70%;
+    height: 100%;
+    background-color: rgb(14, 111, 26);
+}
+.right{
+    width: 30%;
+    height: 100%;
+}
+
+.dummy{
+    width: 80%;
+    display: flex;
+    margin: 4% 0;
+    align-items: center;
+}
+.radio{
+    width: 5%;
+}
+
+.radio{
+    height: 50px;
+    margin-right: 10px;
+}
+
+input[type="text"]{
+    width: 70%;
+    height: 6vh;
+    border-radius: 10px;
+}
+.delete{
+    font-size: 1.7rem;
+    margin-left: 15px;
+    color: #D60000;
+}
+
+.addoption{
+    width: 65%;
+    height: 6vh;
+    margin-left: 35px;
+}
