@@ -1,11 +1,15 @@
 import quizmodal from "./QuizModal.module.css"
 
-let QuizModal=({setCreate})=>{
+let QuizModal=({setCreate,setCreateQuiz})=>{
     let handleClose=()=>{
         setCreate(false)
     }
 
-
+let handleContinue=()=>{
+    handleClose()
+    setCreateQuiz(true)
+    
+}
 
     return (
 <>
@@ -26,7 +30,7 @@ let QuizModal=({setCreate})=>{
 
         <div className={quizmodal.lastcontainer}>
             <button onClick={handleClose} className={quizmodal.cancel}>Cancel</button>
-            <button className={quizmodal.continue}>Continue</button>
+            <button onClick={handleContinue} className={quizmodal.continue}>Continue</button>
         </div>
         </div>
 

@@ -1,6 +1,7 @@
 import quiztext from "./QuizText.module.css"
 import { RiDeleteBinFill } from "react-icons/ri";
 import React,{useState} from "react";
+import Timer from "../Timer/Timer";
 let QuizText=({optns,setOptns})=>{
 
     let [items,setItems]=useState([
@@ -55,7 +56,7 @@ let handleAdd=()=>{
            </div>
 
     <div className={quiztext.right}>
-
+        <Timer/>
 
     </div>
 

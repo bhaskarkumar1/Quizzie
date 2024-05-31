@@ -2,11 +2,16 @@ import { useState } from "react"
 import nav from "./Navbar.module.css"
 import { useNavigate } from "react-router-dom"
 import QuizModal from "../Modals/QuizModal/QuizModal"
+import QuizCreator from "../QuizCreator/QuizCreator"
+import PollCreator from "../PollCreator/PollCreator"
+import Success from "../Success/Success"
 let Navbar=()=>{
 
 let navigate=useNavigate()
 let[isCreate,setCreate]=useState(false)
-
+let[createquiz,setCreateQuiz]=useState(false)
+let[createPoll,setCreatePoll]=useState(true)
+let[success, setSuccess]=useState(false)
 let handleDashboard=()=>{
     navigate("/dashboard")
 }
@@ -54,9 +59,13 @@ let handleCreate=()=>{
             </div>
 
         </div>
-        {isCreate && <div className={nav.another}></div>}
-      { isCreate && <QuizModal setCreate={setCreate}/>}
-
+        {(isCreate || createquiz || createPoll || success) && <div className={nav.another}></div>}
+      { isCreate && <QuizModal setCreate={setCreate} setCreateQuiz={setCreateQuiz}/>}
+      { createquiz && <QuizCreator setCreateQuiz={setCreateQuiz} />}
+      {createPoll && <PollCreator setCreatePoll={setCreatePoll}/>}
+    {success && <Success linkvalue={"https://drive.google.com/drive/u/0/folders/1VC7TlcynPGc8sK0UyGZ6zWyR1DDfxH_s"}
+    type={"Poll"} setSuccess={setSuccess}
+    />}
         </>
 
     )

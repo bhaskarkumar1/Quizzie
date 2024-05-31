@@ -1,0 +1,52 @@
+
+
+.cover{
+    width: 95%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+.text {
+    width: 28%;
+}
+.text input{
+    padding-left: 15px;
+    width: 95%;
+    font-size: 1.2rem;
+    font-family: Poppins;
+
+}
+.text input::placeholder{
+    font-size: 1.2rem;
+    font-size: 1.2rem;
+    font-family: Poppins;
+
+}
+.img{
+    width: 58%;
+}
+.img input{
+    padding-left: 15px;
+    width: 95%;
+    font-family: Poppins;
+
+    
+}
+.img input::placeholder{
+    font-size: 1.2rem;
+    font-family: Poppins;
+
+}
+.del{
+    width: 5%;
+    height: 50%;
+}
+.icon{
+    font-size: 1.8rem;
+    color: #D60000;
+    /* padding-left: 10px; */
+}
+
+
