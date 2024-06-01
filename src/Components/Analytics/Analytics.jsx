@@ -2,18 +2,11 @@ import nlytics from "./Analytics.module.css";
 import Navbar from "../Navbar/Navbar";
 import Card from "../AnalyticsQuiz/Card";
 import Del from "../Modals/Del"
-import { useState } from "react";
+import { useState,useContext } from "react";
+import {data} from "../../App"
 let Analytics = () => {
-    const quizData = [
-        { _id: "1", quizName: "Quiz 1", createdOn: "11/22/2022", impression: 122 },
-        { _id: "2", quizName: "Quiz 2", createdOn: "11/23/2022", impression: 133 },
-        { _id: "3", quizName: "Quiz 3", createdOn: "11/24/2022", impression: 144 },
-        { _id: "4", quizName: "Quiz 4", createdOn: "11/25/2022", impression: 155 },
-        { _id: "5", quizName: "Quiz 5", createdOn: "11/26/2022", impression: 166 },
-        { _id: "6", quizName: "Quiz 6", createdOn: "11/27/2022", impression: 177 },
-        { _id: "4", quizName: "Quiz 4", createdOn: "11/25/2022", impression: 155 },
-        { _id: "5", quizName: "Quiz 5", createdOn: "11/26/2022", impression: 166 },
-    ];
+  let {quizData,setQuizData}=useContext(data)
+
     
   
     
@@ -44,7 +37,7 @@ let Analytics = () => {
                 {/* <Card sNo={"1"} quizName={"abcsdfsdfdg"} createdOn={"11/22/2222"} impression={122}/> */}
             {quizData.map((item,index)=>(
 
-                <Card key={index} setShow={setShow} sNo={index} quizName={item.quizName} createdOn={item.createdOn} impression={item.impression}/>
+                <Card key={item._id} id={item._id} setShow={setShow} sNo={index} quizName={item.quizName} createdOn={item.createdOn} impression={item.impression} quizData={quizData} setQuizData={setQuizData}/>
             ))}
             
             </div>

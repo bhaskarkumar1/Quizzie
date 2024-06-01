@@ -3,7 +3,7 @@ import Newtab from "../NewTab/Newtab";
 import React,{useState} from "react";
 import QuizText from "../QuizText/QuizText";
 
-let QuizCreator=({setCreateQuiz})=>{
+let QuizCreator=({setSuccess,setCreateQuiz})=>{
   let [select,setSelect]=useState("text")
   let [question,setQuestion]=useState([])
   let [optns,setOptns]=useState([])
@@ -30,6 +30,11 @@ let QuizCreator=({setCreateQuiz})=>{
 
 
 let handleCancel=()=>{
+  setCreateQuiz(false)
+}
+
+let handleCreateQuiz=()=>{
+  setSuccess(true)
   setCreateQuiz(false)
 }
 
@@ -72,7 +77,9 @@ let handleCancel=()=>{
 
       <div className={quizcreator.lowercontainer}>
           <button onClick={handleCancel} className={quizcreator.cancelbtn}>Cancel</button>
-          <button className={quizcreator.createbtn}>Create Quiz</button>
+          <button 
+          onClick={handleCreateQuiz}
+          className={quizcreator.createbtn}>Create Quiz</button>
       </div>
 
 </div>

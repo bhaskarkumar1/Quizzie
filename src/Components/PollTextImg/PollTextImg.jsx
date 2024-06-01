@@ -1,7 +1,15 @@
 import ti from "./PollTextImg.module.css"
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
-let PollTextImg=({id})=>{
+let PollTextImg=({id,textimg,setTextImg})=>{
+    let handleDel=(id)=>{
+        // console.log(id)
+        let update=textimg.filter((item)=>item._id!=id).map((item,index)=>(
+            {...item,"_id":index+1}
+        ))
+setTextImg(update)
+console.log(update)
+    }
     return(
         <>
      
@@ -16,7 +24,7 @@ let PollTextImg=({id})=>{
             </div>
            
             <div className={ti.del}>
-            { id>2 && <RiDeleteBin6Fill className={ti.icon}/>}
+            { id>2 && <RiDeleteBin6Fill className={ti.icon} onClick={()=>handleDel(id)}/>}
             </div>
         </div>
         </>

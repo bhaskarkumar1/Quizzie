@@ -5,13 +5,23 @@ import QuizModal from "../Modals/QuizModal/QuizModal"
 import QuizCreator from "../QuizCreator/QuizCreator"
 import PollCreator from "../PollCreator/PollCreator"
 import Success from "../Success/Success"
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 let Navbar=()=>{
 
 let navigate=useNavigate()
 let[isCreate,setCreate]=useState(false)
+let[quiztype,setQuizType]=useState("")
 let[createquiz,setCreateQuiz]=useState(false)
-let[createPoll,setCreatePoll]=useState(true)
+let[createPoll,setCreatePoll]=useState(false)
 let[success, setSuccess]=useState(false)
+
+let[db,setDb]=useState({
+    quizName:"",
+    quizType:"",
+
+})
+
 let handleDashboard=()=>{
     navigate("/dashboard")
 }
@@ -23,6 +33,20 @@ let handleAnalytics=()=>{
 let handleCreate=()=>{
     // navigate("/dashboard")
     setCreate(true)
+}
+
+let handleLogOut=()=>{
+    try{
+    localStorage.clear();
+    toast.success("Logout Done!")
+    setTimeout(()=>{
+        navigate("/")
+
+    },2000)
+    }catch(err){
+        toast.error("Error in logout!")
+
+    }
 }
 
 
@@ -52,19 +76,23 @@ let handleCreate=()=>{
                     <hr />
                 </div>
 
-                <div>
+                <div onClick={handleLogOut}>
                     <p>LOGOUT</p>
+                    <ToastContainer/>
                 </div>
 
             </div>
 
         </div>
         {(isCreate || createquiz || createPoll || success) && <div className={nav.another}></div>}
-      { isCreate && <QuizModal setCreate={setCreate} setCreateQuiz={setCreateQuiz}/>}
-      { createquiz && <QuizCreator setCreateQuiz={setCreateQuiz} />}
-      {createPoll && <PollCreator setCreatePoll={setCreatePoll}/>}
-    {success && <Success linkvalue={"https://drive.google.com/drive/u/0/folders/1VC7TlcynPGc8sK0UyGZ6zWyR1DDfxH_s"}
-    type={"Poll"} setSuccess={setSuccess}
+      { isCreate && <QuizModal quiztype={quiztype} setQuizType={setQuizType} setCreatePoll={setCreatePoll} setCreate={setCreate} setCreateQuiz={setCreateQuiz} db={db} setDb={setDb}/>}
+      {quiztype==="quiz" && createquiz && <QuizCreator setSuccess={setSuccess} setCreateQuiz={setCreateQuiz} />}
+      {quiztype==="poll" && createPoll && <PollCreator setCreatePoll={setCreatePoll}
+      quiztype={quiztype} setSuccess={setSuccess}
+      />}
+    { success && <Success linkvalue={"https://drive.google.com/drive/u/0/folders/1VC7TlcynPGc8sK0UyGZ6zWyR1DDfxH_s"} 
+
+    type={quiztype} setSuccess={setSuccess}
     />}
         </>
 
