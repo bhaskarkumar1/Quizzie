@@ -1,0 +1,64 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    
+    justify-content: space-between;
+  }
+  
+  .left {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* column-gap:20px ; */
+    row-gap: 20px;
+}
+  
+  .dummy {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .radio {
+    margin-right: 10px;
+  }
+  
+  .input {
+    
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    flex: 1;
+  }
+  
+  .delete {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .addoption {
+    border: 1px solid #ccc;
+    color:#000;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    height: 7vh;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 20px;
+  }
+  
+  .right {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

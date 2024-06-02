@@ -1,19 +1,14 @@
-
-
-.container{
-width: 60%;
-height: 70%;
-/* background-color: brown; */
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
-/* color: #9F9F9F; */
-
+.container {
+    width: 60%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.off, .five, .ten, .head{
+.off, .five, .ten, .head {
     width: 65%;
     height: 25%;
     display: flex;
@@ -22,24 +17,29 @@ text-align: center;
     font-family: Poppins;
 }
 
-.off button, .five button, .ten button{
+.off button, .five button, .ten button {
     width: 100%;
     border-radius: 7px;
     color: #9F9F9F;
-    box-shadow:     5px 5px 10px rgba(0, 0, 0, 0.1),   /* Bottom-right shadow */
-    -5px -5px 10px rgba(0, 0, 0, 0.1), /* Top-left shadow */
-    5px -5px 10px rgba(0, 0, 0, 0.1),  /* Top-right shadow */
-    -5px 5px 10px rgba(0, 0, 0, 0.1);  /* Bottom-left shadow */
-  transition: box-shadow 0.3s ease; /* Smooth transition */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+                -5px -5px 10px rgba(0, 0, 0, 0.1),
+                5px -5px 10px rgba(0, 0, 0, 0.1),
+                -5px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.head{
+.head {
     font-weight: 500;
     font-size: 1.3rem;
     color: #9F9F9F;
 }
 
-.ten button{
+/* .ten button {
+    background-color: #D60000;
+    color: #fff;
+} */
+
+.active button {
     background-color: #D60000;
     color: #fff;
 }

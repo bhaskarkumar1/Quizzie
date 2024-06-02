@@ -38,7 +38,7 @@ const contextValue = { quizData, setQuizData };
       <Routes>
 
           <Route path='/' element={<Login/>}/>
-         {token && <Route path='/signup' element={<Register/>}/>}
+          <Route path='/signup' element={<Register/>}/>
         {token &&  <Route path='/dashboard' element={<Dashboard/>}  />}
 
         {token && <Route path="/analytics" element={<Analytic/>}/>}
