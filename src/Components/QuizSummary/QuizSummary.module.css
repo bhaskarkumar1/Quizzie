@@ -25,6 +25,8 @@
 .view{
     text-align: center;
     color: #FF5D01;
+    display: flex;
+    align-items: center;
 }
 .date{
     font-size: 0.8rem;

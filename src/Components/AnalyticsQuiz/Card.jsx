@@ -6,7 +6,10 @@ import { FaShareAlt } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-let Card=({id,sNo,setShow,quizName,createdOn,impression,quizData,setQuizData})=>{
+
+import { format } from 'date-fns';
+
+let Card=({id,sNo,setShow,quizName,createdOn,impression,quizData,setQuizData,setDelId})=>{
 
     let handleShare=()=>{
         toast.success('Link copied to clipboard ');
@@ -15,19 +18,24 @@ let Card=({id,sNo,setShow,quizName,createdOn,impression,quizData,setQuizData})=>
     }
    let handleDelete=()=>{
     setShow(true)
-    console.log(id)
-    let update=quizData.filter((item)=>(
-        item._id!==id
-    ))
-    setQuizData(update)
+    console.log("test id",id)
+    setDelId(id)
+    
+    // let update=quizData.filter((item)=>(
+    //     item._id!==id
+    // ))
+    // setQuizData(update)
     // delete the obj from the quiz 
    }
+
+
+
     return(
         <>
         <div className={card.container}>
             <div className={card.equi}>{sNo+1}</div>
             <div className={card.equi}>{quizName}</div>
-            <div className={card.equi}>{createdOn}</div>
+            <div className={card.equi}>{`${format(new Date(createdOn), "dd MMM, yyyy")}`}</div>
             <div className={card.equi}>{impression}</div>
 
             <div className={card.empty}>

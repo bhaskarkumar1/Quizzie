@@ -14,16 +14,7 @@ let data=createContext()
 
 function App() {
 
-  const [quizData,setQuizData] = useState([
-    { _id: "1", quizName: "Quiz 1", createdOn: "11/22/2022", impression: 122 },
-    { _id: "2", quizName: "Quiz 2", createdOn: "11/23/2022", impression: 133 },
-    { _id: "3", quizName: "Quiz 3", createdOn: "11/24/2022", impression: 144 },
-    { _id: "4", quizName: "Quiz 4", createdOn: "11/25/2022", impression: 155 },
-    { _id: "5", quizName: "Quiz 5", createdOn: "11/26/2022", impression: 166 },
-    { _id: "6", quizName: "Quiz 6", createdOn: "11/27/2022", impression: 177 },
-    { _id: "7", quizName: "Quiz 7", createdOn: "11/25/2022", impression: 155 },
-    { _id: "8", quizName: "Quiz 8", createdOn: "11/26/2022", impression: 166 },
-]);
+  const [quizData,setQuizData] = useState([]);
 
 
 let token = localStorage.getItem('token');

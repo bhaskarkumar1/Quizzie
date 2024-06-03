@@ -18,6 +18,8 @@
     /* background-color:#5076FF; */
     justify-content: space-evenly;
     text-decoration: underline;
+    cursor: pointer;
+
 }
 .equi{
     width: 15%;
@@ -26,15 +28,22 @@
 }
 .icon{
     font-size: 1.5rem;
+    cursor: pointer;
 }
 .edit{
     color: #854CFF;
+    cursor: pointer;
+
 }
 .del{
     color: #D60000;
+    cursor: pointer;
+
 }
 .share{
     color: #60B84B;
+    cursor: pointer;
+
 }
 
 .tost1{

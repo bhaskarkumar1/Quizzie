@@ -1,24 +1,30 @@
-
+.container{
+    width: 100%;
+    height: 100%;
+    
+}
 
 .tdel{
 color:#D60000;
-font-size: 1.5rem;
+font-size: 1.7rem;
 }
 .cover1{
-width: 90%;
-height: 100%;
+width: 55%;
+height: 22%;
 display: flex;
-flex-wrap: wrap;
-align-items: center;
+/* flex-wrap: wrap; */
 justify-content: space-between;
+align-items: center;
+/* justify-content: space-between; */
 }
 
 .ptextinp{
-width: 90%;
+width: 85%;
 }
 
 .ptextinp input{
 width:100%;
 font-size: 1.3rem;
 padding-left: 10px;
+display: flex;
 }

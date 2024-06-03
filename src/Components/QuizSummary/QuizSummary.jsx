@@ -11,7 +11,8 @@ let QuizSummary=({title,views, date})=>{
                 {title}
             </div>
             <div className={quizsummary.view}>
-            <IoEyeSharp />&nbsp;{views}
+                
+            {views}&nbsp;<IoEyeSharp />
             </div>
         </div>
         <div className={quizsummary.date}>

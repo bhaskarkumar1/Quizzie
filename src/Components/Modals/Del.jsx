@@ -1,9 +1,23 @@
 import del from "./Del.module.css"
-
-let Del=({setShow,show})=>{
+import axios from "axios"
+let Del=({setShow,show,delId,setDelId,setIsUpdate,isupdate})=>{
 
     let handleClose=()=>{
         setShow(!show)
+        setDelId("")
+    }
+    let handleConfirm=async()=>{
+        handleClose()
+        // console.log("test ", delId)
+        try {
+            await axios.delete(`http://localhost:7000/delete/${delId}`);
+            // setQuizData(prevData => prevData.filter(quiz => quiz._id !== quizId));
+            setIsUpdate(!isupdate)
+            handleClose();
+        
+        } catch (error) {
+            console.error("Error deleting quiz", error);
+        }
     }
 
     return(
@@ -20,7 +34,7 @@ let Del=({setShow,show})=>{
 
                 <div className={del.btnDiv}>
 
-            <button onClick={handleClose} className={del.confirm}>Confirm Delete</button>
+            <button onClick={handleConfirm} className={del.confirm}>Confirm Delete</button>
             <button onClick={handleClose} className={del.cancel}>Cancel</button>
         </div>
             </div>

@@ -21,13 +21,8 @@ let Navbar = () => {
     let [db, setDb] = useState({
         quizName: "",
         category: "",
-        questions: [
-            {
-                text: "",
-                options: [{ text: "" }],
-                correct: ""
-            }
-        ]
+        optionType: "",
+        questions: []
     });
 
     let handleDashboard = () => {
@@ -38,7 +33,6 @@ let Navbar = () => {
     let handleAnalytics = () => {
         setActiveTab("analytics");
         navigate("/analytics");
-
     };
 
     let handleCreate = () => {
@@ -100,7 +94,7 @@ let Navbar = () => {
             {(isCreate || createquiz || createPoll || success) && <div className={nav.another}></div>}
             {isCreate && <QuizModal quiztype={quiztype} setQuizType={setQuizType} setCreatePoll={setCreatePoll} setCreate={setCreate} setCreateQuiz={setCreateQuiz} db={db} setDb={setDb} />}
             {quiztype === "quiz" && createquiz && <QuizCreator select={select} setSelect={setSelect} setSuccess={setSuccess} setCreateQuiz={setCreateQuiz} />}
-            {quiztype === "poll" && createPoll && <PollCreator setCreatePoll={setCreatePoll} quiztype={quiztype} setSuccess={setSuccess} setDb={setDb} />}
+            {quiztype === "poll" && createPoll && <PollCreator setCreatePoll={setCreatePoll} quiztype={quiztype} setSuccess={setSuccess} setDb={setDb} db={db} />}
             {success && <Success linkvalue={"https://drive.google.com/drive/u/0/folders/1VC7TlcynPGc8sK0UyGZ6zWyR1DDfxH_s"} type={quiztype} setSuccess={setSuccess} />}
         </>
     );

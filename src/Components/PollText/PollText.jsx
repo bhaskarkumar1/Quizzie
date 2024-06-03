@@ -2,47 +2,50 @@ import { useState } from "react";
 import ptext from "./PollText.module.css";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
-let PollText = ({ key, text, id, placevalue, text1, setText }) => {
-  let handleDel = (id) => {
-    // console.log(id)
-    // eslint-disable-next-line react/prop-types
-    let updatedText = text1
-      .filter((item) => item._id !== id)
-      .map((item, index) => ({ ...item, _id: index + 1 }));
+let PollText = ({ optns, setOptns }) => {
+  let [items, setItems] = useState([
+    { "_id": 1, text: '' },
+    { "_id": 2, text: '' },
+    { "_id": 3, text: '' },
+    { "_id": 4, text: '' },
 
-    setText(() => updatedText);
+  ]);
+
+  let handleDelete = (_id) => {
+    setItems(items.filter(item => item._id !== _id));
+    setOptns(optns.filter((_, index) => index !== (_id - 1)));
   };
 
-  let handleInp = (e) => {
-    let { name, value } = e.target;
-    console.log("changes  done at name", name, " val", value);
-
-    setText(prevText => 
-      prevText.map(item => 
-        item._id === id ? { ...item, [name]: value } : item
-      )
-    );
-  
-    console.log(text1);
+  let handleInp = (e, id) => {
+    const { value } = e.target;
+    const newOptns = [...optns];
+    newOptns[id - 1] = { ...newOptns[id - 1], text: value };
+    setOptns(newOptns);
   };
+
   return (
     <>
-      <div className={ptext.cover1}>
-        <div className={ptext.ptextinp}>
-          <input
-            placeholder={placevalue}
-            name={"option" + id}
-            type="text"
-            value={text1[`option${id}`]}
-            onChange={(e) => handleInp(e)}
-          />
-        </div>
-        {id >= 3 && (
-          <RiDeleteBin6Fill
-            className={ptext.tdel}
-            onClick={() => handleDel(id)}
-          />
-        )}
+      <div className={ptext.container}>
+        {items.map((item, index) => (
+          <div key={item._id} className={ptext.cover1}>
+            <div className={ptext.ptextinp}>
+              <input
+                placeholder="Text"
+                type="text"
+                value={optns[index]?.text || ""}
+                onChange={(e) => handleInp(e, item._id)}
+              />
+            </div>
+            <div>
+            {item._id >= 3 && (
+              <RiDeleteBin6Fill
+                className={ptext.tdel}
+                onClick={() => handleDelete(item._id)}
+              />
+            )}
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
