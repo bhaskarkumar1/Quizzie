@@ -15,7 +15,7 @@ let DashBoard = () => {
     useEffect(() => {
         let fetchData = async () => {
             try {
-                let response = await axios.get("http://localhost:7000/getall");
+                let response = await axios.get(`${base}/getall`);
                 console.log(response.data);
                 
                 let quizData = response.data;

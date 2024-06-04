@@ -51,6 +51,7 @@ console.log("set all data ",allData)
 
             }
         })
+        console.log("axios success!")
     }catch(err){
         console.log("axios: ", err)
     }
