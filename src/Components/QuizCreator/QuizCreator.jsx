@@ -3,8 +3,11 @@ import Newtab from "../NewTab/Newtab";
 import React, { useState } from "react";
 import QuizText from "../QuizText/QuizText";
 import QuizTextImg from "../QuizTextImg/QuizTextImg";
+import axios from "axios"
+let base=import.meta.env.VITE_BASE_URL
 
-let QuizCreator = ({ select, setSelect, setSuccess, setCreateQuiz }) => {
+
+let QuizCreator = ({ select, setSelect, setSuccess, setCreateQuiz,setDb,db }) => {
     let [question, setQuestion] = useState([]);
     let [questiontext, setQuestionText] = useState("");
     let [optns, setOptns] = useState([]);
@@ -12,6 +15,8 @@ let QuizCreator = ({ select, setSelect, setSuccess, setCreateQuiz }) => {
 
     let handleSelect = (e) => {
         setSelect(e.target.value);
+        console.log("debug select",select)
+        setDb((prev)=>({...prev,optionType:select}))
     };
 
     let handleNewQuestion = () => {
@@ -29,12 +34,29 @@ let QuizCreator = ({ select, setSelect, setSuccess, setCreateQuiz }) => {
         setCreateQuiz(false);
     };
 
-    let handleCreateQuiz = () => {
+    let handleCreateQuiz = async() => {
+        setAllData(question);
+
+        setDb((prev)=>({...prev,questions:question}))
+
+console.log("set all data ",allData)
+   
+        console.log("question",question) // storing questions and optins for both the text , img , text+img
+        let token=localStorage.getItem("token")
+    try{
+        await axios.post(`${base}/create-quiz`,db, {
+            headers:{
+                "Authorization":token,
+                'Content-Type': 'application/json',
+
+            }
+        })
+    }catch(err){
+        console.log("axios: ", err)
+    }
         setSuccess(true);
         setCreateQuiz(false);
-        setAllData(question);
-        console.log("question",question) // storing questions and optins for both the text , img , text+img
-
+        console.log("quiz db",db)
     };
 
     return (
@@ -57,9 +79,9 @@ let QuizCreator = ({ select, setSelect, setSuccess, setCreateQuiz }) => {
                             </div>
                             <div className={quizcreator.options}>
                                 <label>Option Type</label>
-                                <label className={quizcreator.lbl}><input name="optiontype" type="radio" value="text" onClick={handleSelect} defaultChecked />Text</label>
-                                <label className={quizcreator.lbl}><input name="optiontype" type="radio" value="img" onClick={handleSelect} />Image URL</label>
-                                <label className={quizcreator.lbl}><input name="optiontype" type="radio" value="img+text" onClick={handleSelect} />Text & Image URL</label>
+                                <label className={quizcreator.lbl}><input name="optiontype" type="radio" value="text" onClick={(e)=>handleSelect(e)} defaultChecked />Text</label>
+                                <label className={quizcreator.lbl}><input name="optiontype" type="radio" value="img" onClick={(e)=>handleSelect(e)} />Image URL</label>
+                                <label className={quizcreator.lbl}><input name="optiontype" type="radio" value="img+text" onClick={(e)=>handleSelect(e)} />Text & Image URL</label>
                             </div>
                         </div>
 

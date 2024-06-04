@@ -19,14 +19,17 @@ const QuizModal = ({ setCreatePoll, quiztype, setQuizType, setCreate, setCreateQ
             setError("Quiz Name Required!");
         } else {
             setError("");
+            setDb((prev) => ({ ...prev, quizName: intro.quizName, category: intro.quizType }));
+
             if (intro.quizType === "quiz") {
+                console.log(db)
+
                 setCreateQuiz(true);
             } else {
                 setCreatePoll(true);
             }
             handleClose();
         }
-        setDb((prev) => ({ ...prev, quizName: intro.quizName, category: intro.quizType }));
         console.log(db)
     };
 
@@ -55,7 +58,7 @@ const QuizModal = ({ setCreatePoll, quiztype, setQuizType, setCreate, setCreateQ
                             className={`${quizmodal.input} ${error ? quizmodal.errorPlaceholder : ""}`}
                             name="quizName"
                             value={intro.quizName}
-                            onChange={handleIntro}
+                            onChange={(e)=>handleIntro(e)}
                         />
                     </div>
 

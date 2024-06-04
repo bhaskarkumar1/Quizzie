@@ -6,6 +6,8 @@ import { IoIosClose } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
 import axios from "axios";
 
+let base= import.meta.env.VITE_BASE_URL
+
 let PollCreator = ({ setSuccess, setCreatePoll, setDb, db }) => {
     let [question, setQuestion] = useState([]);
     let [questiontext, setQuestionText] = useState("");
@@ -39,7 +41,7 @@ let PollCreator = ({ setSuccess, setCreatePoll, setDb, db }) => {
             let token = localStorage.getItem("token");
             // console.log(token);
 
-            await axios.post("http://localhost:7000/create-quiz", updatedDb, {
+            await axios.post(`${base}/create-quiz`, updatedDb, {
                 headers: {
                     'Authorization': `${token}`,
                     'Content-Type': 'application/json',

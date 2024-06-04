@@ -5,6 +5,7 @@ import Del from "../Modals/Del"
 import { useState,useContext, useEffect } from "react";
 import {data} from "../../App"
 import axios from "axios"
+let base=import.meta.env.VITE_BASE_URL
 
 let Analytics = () => {
   let {quizData,setQuizData}=useContext(data)
@@ -17,7 +18,7 @@ let Analytics = () => {
 useEffect(()=>{
   let fetchData=async()=>{
     try{
-      let response=await axios.get("http://localhost:7000/getall")
+      let response=await axios.get(`${base}/getall`)
       console.log("res",response.data)
       setQuizData(response.data)
     }catch(err){

@@ -6,6 +6,8 @@ import QuizSummary from "../QuizSummary/QuizSummary";
 import axios from "axios";
 import { format } from 'date-fns';
 
+let base=import.meta.env.VITE_BASE_URL
+
 let DashBoard = () => {
     let [quiz, setQuiz] = useState([]);
     let [summary, setSummary] = useState([]);

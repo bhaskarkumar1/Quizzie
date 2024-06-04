@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+let base= import.meta.env.VITE_BASE_URL
 let SignIn = () => {
   let navigate = useNavigate();
   let [user, setUser] = useState({
@@ -52,7 +54,7 @@ let SignIn = () => {
     if (formIsValid) {
       try {
         let response = await axios.post(
-          "http://localhost:7000/auth/login",
+          `${base}/auth/login`,
           user
         );
         if (response.data.token) {

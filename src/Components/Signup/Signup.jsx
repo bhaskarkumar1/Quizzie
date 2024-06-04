@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+let base=import.meta.env.VITE_BASE_URL
+
 let signUp = () => {
   let navigate = useNavigate();
   let [user, setUser] = useState({
@@ -125,7 +128,7 @@ let signUp = () => {
     // if there is no error  then fire a axios post sign up req
     if (formIsValid) {
       try {
-        await axios.post("http://localhost:7000/auth/signup", user);
+        await axios.post(`${base}/auth/signup`, user);
         
         console.log("signup success");
         setUser((prev)=>({...prev,name:"",email:"",password:"",cnfPassword:""}))

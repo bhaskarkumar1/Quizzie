@@ -1,5 +1,8 @@
 import del from "./Del.module.css"
 import axios from "axios"
+
+let base=import.meta.env.VITE_BASE_URL
+
 let Del=({setShow,show,delId,setDelId,setIsUpdate,isupdate})=>{
 
     let handleClose=()=>{
@@ -10,7 +13,7 @@ let Del=({setShow,show,delId,setDelId,setIsUpdate,isupdate})=>{
         handleClose()
         // console.log("test ", delId)
         try {
-            await axios.delete(`http://localhost:7000/delete/${delId}`);
+            await axios.delete(`${base}/delete/${delId}`);
             // setQuizData(prevData => prevData.filter(quiz => quiz._id !== quizId));
             setIsUpdate(!isupdate)
             handleClose();
