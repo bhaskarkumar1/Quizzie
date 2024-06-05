@@ -149,7 +149,7 @@ let signUp = () => {
           <div className={signup.innerContainer}>
             <h1 className={signup.heading}>QUIZZIE</h1>
             <div className={signup.options}>
-              <div onClick={handleSignup}>Sign Up</div>
+              <div className={signup.active} onClick={handleSignup}>Sign Up</div>
               <div onClick={handleLogin}>Log In</div>
             </div>
             <div className={signup.field}>

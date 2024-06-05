@@ -7,6 +7,7 @@ import PollCreator from "../PollCreator/PollCreator";
 import Success from "../Success/Success";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocation } from 'react-router-dom';
 
 let Navbar = () => {
     let [select, setSelect] = useState("text");
@@ -24,9 +25,11 @@ let Navbar = () => {
         optionType: "",
         questions: []
     });
+    const location = useLocation();
 
     let handleDashboard = () => {
         setActiveTab("dashboard");
+        // console.log("locaoiton:",location.pathname)
         navigate("/dashboard");
     };
 
@@ -62,13 +65,13 @@ let Navbar = () => {
                 <div className={nav.options}>
                     <div 
                         onClick={handleDashboard} 
-                        className={`${nav.dashboard} ${activeTab === "dashboard" ? nav.active : ""}`}
+                        className={`${nav.dashboard} ${location.pathname === "/dashboard" ? nav.active : ""}`}
                     >
                         <p>Dashboard</p>
                     </div>
                     <div 
                         onClick={handleAnalytics} 
-                        className={`${nav.analytics} ${activeTab === "analytics" ? nav.active : ""}`}
+                        className={`${nav.analytics} ${location.pathname === "/analytics" ? nav.active : ""}`}
                     >
                         <p>Analytics</p>
                     </div>

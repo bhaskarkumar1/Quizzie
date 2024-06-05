@@ -90,9 +90,9 @@ let SignIn = () => {
         <div className={signin.outerContainer}>
           <div className={signin.innerContainer}>
             <h1 className={signin.heading}>QUIZZIE</h1>
-            <div className={signin.options}>
-              <div onClick={handleSignup}>Sign Up</div>
-              <div onClick={handleLogin}>Log In</div>
+            <div  className={signin.options}>
+              <div  onClick={handleSignup}>Sign Up</div>
+              <div className={signin.active} onClick={handleLogin}>Log In</div>
             </div>
             <div className={signin.field}>
               <div className={signin.card}>

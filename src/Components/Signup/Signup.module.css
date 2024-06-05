@@ -121,7 +121,16 @@ align-items: center;
     background-color: #eef4ff; /* Optional: Light bluish background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Slight shadow for better visual */
 }
-
+.active{
+    text-align: center;
+    width: 40%;
+    border-radius: 10px;
+    box-shadow: 
+    4px 4px 10px rgba(0, 0, 0, 0.2),  /* Outer shadow */
+    -4px -4px 10px rgba(255, 255, 255, 0.9),  /* Inner highlight */
+    inset 4px 4px 10px rgba(0, 0, 0, 0.1),  /* Inner shadow */
+    inset -4px -4px 10px rgba(255, 255, 255, 0.7);  /* Inner highlight */
+}
 @media screen and (min-width:677px) and (max-width:1024px) {
     .options{
         width: 90%;
